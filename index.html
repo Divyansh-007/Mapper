@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/75cf4e84e0.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Mappy</title>
+  </head>
+  <body>
+    <!-- map -->
+    <div id="mapid"></div>
+
+    <!-- information display -->
+    <div class="leaflet-control-attribution leaflet-control info_display">
+      <!-- city name input -->
+      <input id="city_name" type="text" placeholder="New Delhi" />
+
+      <!-- search button -->
+      <button id="search_btn"><i class="fas fa-search"></i> Search</button>
+
+      <!-- current temperature and weather conditions -->
+      <div class="temp_n_weather">
+        <span>25 &#8451;</span>
+        <img src="http://openweathermap.org/img/wn/10d@2x.png" />
+      </div>
+
+      <!-- time and date -->
+      <div class="time_n_date">
+          <p><i class="far fa-calendar-alt"></i> 18 June, 2021</p>
+          <p><i class="far fa-clock"></i> 5 : 11 PM </p>
+      </div>
+    </div>
+
+    <!-- more info -->
+    <div class="leaflet-control-attribution leaflet-control more_info">
+      <button
+        id="pressure"
+        data-bs-toggle="tooltip"
+        data-bs-placement="left"
+        title="Preesure"
+        class="info_btn"
+      >
+        <i class="fas fa-angle-double-down"></i>
+      </button>
+
+      <button
+        id="humidity"
+        data-bs-toggle="tooltip"
+        data-bs-placement="left"
+        title="Humidity"
+        class="info_btn"
+      >
+        <i class="fas fa-tint"></i>
+      </button>
+
+      <button
+        id="wind"
+        data-bs-toggle="tooltip"
+        data-bs-placement="left"
+        title="Wind"
+        class="info_btn"
+      >
+        <i class="fas fa-wind"></i>
+      </button>
+
+      <button
+        id="clouds"
+        data-bs-toggle="tooltip"
+        data-bs-placement="left"
+        title="Clouds"
+        class="info_btn"
+      >
+        <i class="fas fa-cloud"></i>
+      </button>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
