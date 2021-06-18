@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="https://kit.fontawesome.com/75cf4e84e0.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="mapid" style="height: 96vh; position: relative;">
+    </div>
+    <div class="leaflet-control-attribution leaflet-control" style="position: absolute; top: 1%; right: 1%; border: 1px solid black; height: 10rem; width: 30rem;">
+      <input type="text" placeholder="New Delhi" style="position: absolute;
+      top: 4%;
+      left: 2%;
+      border-radius: 15px;
+      text-indent: 10px;
+      font-size: 2rem;
+      width: 16rem;">
+      <button style="position: absolute;
+      top: 6%;
+      left: 60%;
+      font-size: 1.25rem;
+      padding: 5px;
+      border-radius: 15px;"><i class="fas fa-search"></i> Search</button>
+      <div style="height: auto;
+      width: 12rem;
+      border: 0.5px solid black;
+      position: absolute;
+      top: 24%;
+      left: 2%;
+      display: flex;
+      align-items: center;">
+          <span style="font-size: 2.25rem;
+          font-weight: bolder;">25 &#8451;</span>
+          <img src="http://openweathermap.org/img/wn/10d@2x.png">
+      </div>
+  </div>
+  <div class="leaflet-control-attribution leaflet-control" style="position: absolute;
+  right: 1%;
+  top: 30%;
+  border: 0.5px solid black;
+  border-radius: 10px;
+  height: 26rem;
+  width: 4rem;">
+      <button data-bs-toggle="tooltip" data-bs-placement="left" title="Clouds" style="background: transparent;
+      border: 0.5px solid black;
+      outline: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      width: 4rem;
+      height: 4rem;
+      margin: 35% 0%;">
+          <i class="fas fa-angle-double-down"></i>
+        </button>
+
+        <button data-bs-toggle="tooltip" data-bs-placement="left" title="Humidity" style="background: transparent;
+      border: 0.5px solid black;
+      outline: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      width: 4rem;
+      height: 4rem;
+      margin: 35% 0%;">
+          <i class="fas fa-tint"></i>
+        </button>
+
+        <button data-bs-toggle="tooltip" data-bs-placement="left" title="Wind" style="background: transparent;
+      border: 0.5px solid black;
+      outline: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      width: 4rem;
+      height: 4rem;
+      margin: 35% 0%;">
+          <i class="fas fa-wind"></i>
+        </button>
+
+        <button data-bs-toggle="tooltip" data-bs-placement="left" title="Presure" style="background: transparent;
+      border: 0.5px solid black;
+      outline: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      width: 4rem;
+      height: 4rem;
+      margin: 35% 0%;">
+          <i class="fas fa-cloud"></i>
+        </button>
+  </div>
+
+    <script>
+      let mymap = L.map("mapid").setView([28.6139, 77.209], 12);
+
+      L.tileLayer(
+        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+        {
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+          id: "mapbox/streets-v11",
+          tileSize: 512,
+          zoomOffset: -1,
+          accessToken:
+            "pk.eyJ1IjoiZGl2eWFuc2gwMDciLCJhIjoiY2txMHRsM2p6MDhhMzJvcWludHh0ZGoybiJ9.rEs-aZdz5HxYuS-KWFE3Aw",
+        }
+      ).addTo(mymap);
+
+      let marker = L.marker([28.6139, 77.209]).addTo(mymap);
+      marker.bindPopup("<b>New Delhi</b><br>India").openPopup();
+    </script>
+  </body>
+</html>
