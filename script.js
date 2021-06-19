@@ -1,6 +1,6 @@
 // by default on start of application mapping to New Delhi
 getMap("New Delhi", "India", 28.6139, 77.209);
-getDateAndTime();
+// getDateAndTime();
 getData(28.6139, 77.209);
 
 // creating references
@@ -110,62 +110,14 @@ function getMeridian(value) {
   return value < 12 ? "AM" : "PM";
 }
 
-// date and time rendering function
-function getDateAndTime() {
-  let date = new Date();
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-
-  let hrs = date.getHours();
-  let min = date.getMinutes();
-
-  if (hrs < 12) {
-    hrs = hrs;
-  } else {
-    hrs = hrs - 12;
-  }
-
-  document.getElementById(
-    "date"
-  ).innerHTML = `<i class="far fa-calendar-alt"></i> ${date.getDate()} ${
-    months[date.getMonth()]
-  }, ${date.getFullYear()}`;
-
-  document.getElementById(
-    "time"
-  ).innerHTML = `<i class="far fa-clock"></i> ${extraZeros(hrs)} : ${extraZeros(
-    min
-  )} ${getMeridian(date.getHours())}`;
+// function for converting date and time zones
+function convertTZ(date, tzString) {
+  return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
 }
 
 // function to convert date in human readable format
 function convertDate(value) {
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
+  let months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
   let date = new Date(value * 1000);
 
   return extraZeros(date.getDate()) + " " + months[date.getMonth()];
@@ -212,6 +164,32 @@ function getData(lat, long) {
     document
       .getElementById("clouds")
       .setAttribute("title", `Cloudiness: ${responseJSON.current.clouds} %`);
+
+    // date and time 
+    let date = new Date(responseJSON.current.dt*1000);
+    let correctDate = convertTZ(date,responseJSON.timezone);
+    let months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  
+    let hrs = correctDate.getHours();
+    let min = correctDate.getMinutes();
+  
+    if (hrs < 12) {
+      hrs = hrs;
+    } else {
+      hrs = hrs - 12;
+    }
+
+    document.getElementById(
+      "date"
+    ).innerHTML = `<i class="far fa-calendar-alt"></i> ${correctDate.getDate()} ${
+      months[correctDate.getMonth()]
+    }, ${correctDate.getFullYear()}`;
+  
+    document.getElementById(
+      "time"
+    ).innerHTML = `<i class="far fa-clock"></i> ${extraZeros(hrs)} : ${extraZeros(
+      min
+    )} ${getMeridian(correctDate.getHours())}`;
 
     // forecast rendering
     let daily = responseJSON.daily;
