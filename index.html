@@ -37,8 +37,11 @@
 
       <!-- current temperature and weather conditions -->
       <div class="temp_n_weather">
-        <span>25 &#8451;</span>
-        <img src="http://openweathermap.org/img/wn/10d@2x.png" />
+        <span id="temp"></span>
+        <div class="weather_conditions">
+          <img id="weather_img" alt="weather image" />
+          <p id="weather_description"></p>
+        </div>
       </div>
 
       <!-- time and date -->
@@ -90,6 +93,8 @@
         <i class="fas fa-cloud"></i>
       </button>
     </div>
+
+    <div id="forecast" class="leaflet-control-attribution leaflet-control"></div>
 
     <script type="text/javascript" src="script.js"></script>
   </body>

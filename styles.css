@@ -48,17 +48,28 @@
 
 .temp_n_weather {
   height: auto;
-  width: 12rem;
+  width: 15rem;
   /* border: 0.5px solid black; */
   position: absolute;
   top: 35%;
-  left: 8%;
+  left: 4%;
   display: flex;
   align-items: center;
 }
 
 .temp_n_weather span {
   font-size: 2.25rem;
+  font-weight: bolder;
+}
+
+.weather_conditions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather_conditions p {
+  margin-top: -24%;
   font-weight: bolder;
 }
 
@@ -116,4 +127,28 @@
 
 #clouds {
   color: skyblue;
+}
+
+#forecast {
+  /* border: 1px solid black; */
+  position: absolute;
+  top: 74%;
+  width: 62rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.forecast_item{
+  border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 15px;
+      background: lightgrey;
+}
+
+.forecast_item p{
+  margin-top: -10%;
+  font-weight: bolder;
 }
