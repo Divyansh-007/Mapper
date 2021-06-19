@@ -100,6 +100,12 @@
   background: lightgrey;
 }
 
+@media screen and (max-width:770px) {
+  .more_info{
+    height: 22rem;
+  }
+}
+
 .info_btn {
   background: transparent;
   border: 0.5px solid black;
@@ -110,6 +116,14 @@
   height: 4rem;
   margin: 35% 0%;
   background: white;
+}
+
+@media screen and (max-width:770px) {
+  .info_btn{
+    width: 3rem;
+    height: 3rem;
+    margin: 30% 12%;
+  }
 }
 
 #pressure {
@@ -137,6 +151,12 @@
   justify-content: space-between;
 }
 
+@media screen and (max-width: 770px) {
+  #forecast {
+    width: 40rem;
+  } 
+}
+
 .forecast_item {
   border: 1px solid black;
   display: flex;
@@ -150,3 +170,16 @@
   margin-top: -10%;
   font-weight: bolder;
 }
+
+@media screen and (max-width: 770px) {
+  .forecast_item {
+    min-width: 4rem;
+  }
+  
+  .forecast_item img{
+    height: 3rem;
+    width: 3rem;
+  }
+}
+
+
