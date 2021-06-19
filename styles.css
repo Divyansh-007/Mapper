@@ -4,6 +4,7 @@
   position: relative;
 }
 
+/* information display  */
 .info_display {
   position: absolute;
   top: 1%;
@@ -49,7 +50,6 @@
 .temp_n_weather {
   height: auto;
   width: 15rem;
-  /* border: 0.5px solid black; */
   position: absolute;
   top: 35%;
   left: 4%;
@@ -74,7 +74,6 @@
 }
 
 .time_n_date {
-  /* border: 1px solid black; */
   height: 6rem;
   width: 18rem;
   position: absolute;
@@ -130,7 +129,6 @@
 }
 
 #forecast {
-  /* border: 1px solid black; */
   position: absolute;
   top: 74%;
   width: 62rem;
@@ -139,16 +137,16 @@
   justify-content: space-between;
 }
 
-.forecast_item{
+.forecast_item {
   border: 1px solid black;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-radius: 15px;
-      background: lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  background: lightgrey;
 }
 
-.forecast_item p{
+.forecast_item p {
   margin-top: -10%;
   font-weight: bolder;
 }
