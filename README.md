@@ -1,6 +1,6 @@
 # Mappy
 
-<b>Link</b>: https://divyansh-007.github.io/MercadosTask/
+<b>Link</b>: https://divyansh-007.github.io/Mapper/
 
 An application to search a city by name and get information of the same.
 
